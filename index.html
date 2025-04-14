@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Voice Weather App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>🌦️ Voice Weather App</h1>
+
+    <!-- 🌙 Dark mode toggle -->
+    <button id="darkModeToggle">🌓 Toggle Dark Mode</button>
+
+    <!-- 🔍 Text search input -->
+    <input type="text" id="cityInput" placeholder="Enter city name" />
+    <button id="searchBtn">🔍 Search</button>
+
+    <!-- 🎤 Voice input -->
+    <button id="voiceBtn">🎤 Speak City Name</button>
+
+    <!-- Display weather here -->
+    <div id="weatherInfo"></div>
+  </div>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js')
+          .then((registration) => {
+            console.log('Service Worker registered:', registration);
+          })
+          .catch((error) => {
+            console.log('Service Worker registration failed:', error);
+          });
+      });
+    }
+  </script>
+  
+
+  <script src="script.js"></script>
+</body>
+</html>
